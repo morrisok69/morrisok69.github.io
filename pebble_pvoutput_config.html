@@ -70,6 +70,19 @@
         return options;
       }
       $().ready(function() {
+        var system_id = getURLVariable('system_id');
+        system_id = decodeURI(system_id);
+      
+        if (system_id) {
+          $('#system_id').html(system_id);
+        }
+        var api_key = getURLVariable('api_key');
+        api_key = decodeURI(api_key);
+      
+        if (api_key) {
+          $('#api_key').html(api_key);
+        }
+
         $("#b-cancel").click(function() {
           console.log("Cancel");
           document.location = "pebblejs://close";
@@ -88,6 +101,17 @@
           $("#"+[key]).val(obj[key]).slider("refresh");       
         }
       });
+      
+        
+      function getURLVariable(name)  {
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)",
+            regex = new RegExp(regexS),
+            results = regex.exec(window.location.href);
+        if (results == null) return "";
+        else return results[1];
+      }      
+      
     </script>
   </body>
 </html>

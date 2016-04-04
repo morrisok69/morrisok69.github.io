@@ -90,7 +90,7 @@
         }
         
         var show_consumption = getURLVariable('show_consumption');
-        api_key = decodeURI(show_consumption);
+        show_consumption = decodeURI(show_consumption);
         if (show_consumption) {
           $('#show_consumption').html(show_consumption);
         }

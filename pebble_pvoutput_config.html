@@ -92,8 +92,10 @@
         var show_consumption = getURLVariable('show_consumption');
         show_consumption = decodeURI(show_consumption);
         if (show_consumption) {
-          $('#show_consumption').html(show_consumption);
+          document.getElementById('show_consumption').checked = show_consumption;
         }
+        
+        
 
         $("#b-cancel").click(function() {
           console.log("Cancel");

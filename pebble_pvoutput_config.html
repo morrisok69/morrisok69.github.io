@@ -70,17 +70,24 @@
         return options;
       }
       $().ready(function() {
+        
+        // Read the variables from the URL and populate them with existing values (if they exist)
         var system_id = getURLVariable('system_id');
         system_id = decodeURI(system_id);
-      
         if (system_id) {
           $('#system_id').html(system_id);
         }
+        
         var api_key = getURLVariable('api_key');
         api_key = decodeURI(api_key);
-      
         if (api_key) {
           $('#api_key').html(api_key);
+        }
+        
+        var show_consumption = getURLVariable('show_consumption');
+        api_key = decodeURI(show_consumption);
+        if (show_consumption) {
+          $('#show_consumption').html(show_consumption);
         }
 
         $("#b-cancel").click(function() {
